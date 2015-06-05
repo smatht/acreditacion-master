@@ -1,0 +1,55 @@
+[
+      {
+        "email":"juanperez@gmail.com",
+        "detalle":"juanperez@gmail.com, Juan Perez, Chaco",
+        "universidad":"Universidad de Belgrano",
+        "pais":"Argentina",
+        "lugarDeTrabajo":"Ministerio",
+        "estado":1
+
+      },
+      {
+        "email":"juanp1@gmail.com",
+        "detalle":"juanp1@gmail.com,Juan Perez (Chaco)",
+        "universidad":"Universidad de Moron",
+        "pais":"Brazil",
+        "lugarDeTrabajo":"Docente",
+        "estado":1
+
+      },
+      {
+        "email":"juanp1@gmail.com",
+        "detalle":"juanp1@gmail.com, Juan Perez, Chaco",
+        "universidad":"UTN Resistencia",
+        "lugarDeTrabajo":"Profesor",
+        "pais":"Uruguay",
+        "estado":1
+
+      },
+      {
+        "email":"josefina@gmail.com",
+        "detalle":"josefina@gmail.com, Josefina Almeida, Corrientes",
+        "universidad":"UTN Resistencia",
+        "lugarDeTrabajo":"Profesor",
+        "pais":"Uruguay",
+        "estado":2
+      },
+      {
+        "email":"jmarta2@gmail.com",
+        "detalle":"marta2@gmail.com, Marta Gomez, Misiones",
+        "nombre":"Marta",
+        "apellido":"Gomez",
+        "universidad":"UTN Resistencia",
+        "lugarDeTrabajo":"Ministerio",
+        "pais":"Uruguay",
+        "estado":1
+      },
+      {
+        "email":"jpepe1@gmail.com",
+        "detalle":"pepe1@gmail.com, Pepe Algo, Corrientes",
+        "universidad":"UTN Resistencia",
+        "lugarDeTrabajo":"Ministerio",
+        "pais":"Uruguay",
+        "estado":1
+      }
+]
