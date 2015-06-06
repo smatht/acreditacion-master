@@ -24,7 +24,7 @@
 										  left join formas_pago as fp on fp.id_forma_pago = insc.id_forma_pago 
 										  LEFT JOIN tipos_inscripcion AS ti ON ti.id_tipo_insc = insc.id_tipo_insc
 										  left join datos_facturacion as df on df.id_datos_fac = insc.id_datos_fac 
-										  where per.correo='marianocarreras90@hotmail.com'") or die('Problemas!!'.mysqli_error());
+										  where per.correo='$_GET[correo]'") or die('Problemas!!'.mysqli_error());
 
 
 
