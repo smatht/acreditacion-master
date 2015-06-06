@@ -64,7 +64,7 @@ typeahead-min-length='3' typeahead-on-select='onSelectUniversidad($item, $model,
         </li>
         <li>
             <label for="localidad">Localidad:</label>
-            <input type="text" ng-model="localidad"  typeahead="u as u.localidad for u in inscriptos | filter:$viewValue | limitTo:5"
+            <input type="text" ng-model="localidad" typeahead="u as u.localidad for u in inscriptos | filter:$viewValue | limitTo:5"
 typeahead-min-length='3' typeahead-on-select='onSelectLocalidad($item, $model, $label)' required autocomplete=none>
         </li>
         <li>

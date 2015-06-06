@@ -19,7 +19,7 @@
 	background-color: #222299;
 
 }
-.lista_menu li a{
+#container li a{
 	text-decoration: none;
 	color: white;
 	
@@ -43,14 +43,24 @@ h1, h2, h3 {
 }
 #container {
  margin: 0 auto;
- width: 50%; /* Ancho del contenedor */
+ width: 80%; /* Ancho del contenedor */
+ background: white;
+-webkit-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+-moz-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+border-radius: 0 .25em .25em .25em;
+min-height: 48.7em;
+position: relative;
+z-index: 5;
 }
 #container ul {
  list-style-type: none;
 }
-#container input {
+
+#container #buscar {
  height: 2.5em;
- visibility: hidden;
+ visibility: visible;
+ float: right;
 }
 #container li input {
  height: 2.5em;
@@ -64,9 +74,9 @@ h1, h2, h3 {
 }
 #container li{
 float: left;
-width: 100%;
+
 }
-#container label {
+#container a {
 background: #d3ab06; */
  border-radius: .25em .25em 0 0;
 color: black;
@@ -87,13 +97,13 @@ color: black;
  background: none;
 }
 
-#container input:hover + label {
+#container input:hover + li {
 background: #d3ab06;
 border-bottom: 5px solid #1e5799;
  /*background: #ddd; /* Fondo de las pestañas al pasar el cursor por encima */
  color: black; /* Color del texto de las pestañas al pasar el cursor por encima */
 }
-#container input:checked + label {
+#container input:checked + li {
 background: white;
 border-bottom: 5px solid #1e5799;
  /*background: #f1f1f1; /* Fondo de las pestañas al presionar */
@@ -101,6 +111,10 @@ border-bottom: 5px solid #1e5799;
  position: relative;
  z-index: 6;
 }
+
+
+
+
 #content {
 background: white;
 -webkit-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
@@ -194,7 +208,7 @@ width: 6%;
 margin-left: 100px;
 }
 table {
-margin-top: 100px;
+margin-top: 20px;
 width: 100%;
 }
 table td {
@@ -204,4 +218,24 @@ text-align: center;
 table tr {
 background:-webkit-linear-gradient(top, #1e5799 0%,#2989d8 100%); 
 color:white;
+}
+
+/*NUEVO*/
+ul {
+width: 100%;
+overflow: hidden;
+}
+
+#activo {
+background: white !important;
+color: #1e5799 !important;
+border-bottom: 5px solid #1e5799;
+ /*background: #f1f1f1; /* Fondo de las pestañas al presionar */
+ /*color: white; /* Color de las pestañas al presionar */
+ position: relative;
+ z-index: 6;
+}
+table a {
+width: 100%;
+text-decoration: none;
 }

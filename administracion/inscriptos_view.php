@@ -32,11 +32,12 @@
 			left join estados_inscripcion as ei on ei.id_estado_insc = insc.id_estado_insc 
 			left join datos_facturacion as df on df.id_datos_fac = insc.id_datos_fac 
 			left join condiciones_iva as ci on ci.id_cond_iva = df.condicion_iva
-			order by insc.fecha_hora desc");
+			order by insc.fecha_hora desc"); 
 ?>
 	<table class="tabla_inscriptos">
 		<th>Nro. Insc.</th><th>Fecha/Hora</th><th>Apellido y Nombres</th><th>Correo</th><th>Telefono</th>
 		<?php while ($registro = $resultado->fetch_object()) : ?>
+		
 		<tr>
 			<td><?php echo $registro->nro_inscripcion; ?></td>
 			<td><?php echo date("d-m-Y H:i",$registro->fecha_hora); ?></td>

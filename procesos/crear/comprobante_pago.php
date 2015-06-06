@@ -74,6 +74,6 @@
 	    $pdf->Image('../../inscripcion/images/teyet2015.png' , 12, 150, 50 , 38,'PNG');
 		$pdf->Output();
 	}else{
-		echo utf8_decode('La dirección de correo '.$_GET['correo'].' no se encuentra registrada o aun no pagó.'); die;		
+		echo utf8_decode('La dirección de correo '.$_GET['correo'].' no se encuentra registrada o aun no pagó. '); die;		
 	}
 ?>

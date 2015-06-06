@@ -82,6 +82,7 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 			$http.get("../procesos/inscriptos.php").success(function(data){
 				
 				$scope.inscriptos = data;
+				console.log(data);
 			});
 		}
 		//Select
@@ -149,13 +150,14 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 				nombreInst:$scope.nombreInst,
 				localidad:$scope.localidad,
 				domicilio:$scope.domicilio,
+				tel:$scope.tel,
 				iva:$scope.iva.id
 			})
 			.error(function(data, status, headers, config) {
 				console.log(status);     
 			})
 			.success(function(data, status, headers, config){
-				console.log(data);
+				
 				
 				alert("Se inscribio correctamente..");
 			$scope.envioValido=true;
