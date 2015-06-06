@@ -1,12 +1,11 @@
 <?php 
+	require_once("../config.php");
 	$postdata = file_get_contents("php://input");
 	$datos = json_decode($postdata);
-	
-
-	
 
 	//establezco la conexion a la base
-	if( ! $conexion = mysqli_connect('localhost','root','','teyet')){
+	if( ! $conexion = mysqli_connect($config_servidor_bd,$config_usuario,$config_clave,$config_bd_name);
+	){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al intentar conectar con la base de datos: ".$conexion->connect_error);
 	}
@@ -20,8 +19,6 @@
 		//obtengo el id_persona autogenerado
 		$id_persona = $conexion->insert_id;
 	}
-
-
 
 	//$conexion = mysqli_connect('localhost','root','','teyet');
 
@@ -58,12 +55,9 @@
 	if( ! $resultado = $conexion->query($consulta)){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al guardar un registro en la tabla Inscripciones: ".$conexion->error);
-		echo json_encode(array("resultado"=>FALSE));
+		echo json_encode(array("resultado"=>false));
 	}else{
-		echo json_encode(array("resultado"=>TRUE));
+		echo json_encode(array("resultado"=>true));
 	}
 	
-
-
-
 ?>

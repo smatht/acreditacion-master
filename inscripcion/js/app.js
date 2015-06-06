@@ -5,7 +5,6 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 
 		//Inicializar variables
 		//********//
-		console.log("holA");
 		$scope.verBoton=false;
 		$scope.verFormulario=false;
 		$scope.valido=true;
@@ -80,7 +79,7 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 		getInscriptos();
  
 		function getInscriptos(){  
-			$http.get("procesos/inscriptos.php").success(function(data){
+			$http.get("../procesos/inscriptos.php").success(function(data){
 				
 				$scope.inscriptos = data;
 			});
@@ -137,7 +136,7 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 		$scope.enviar = function(){
 			
 			if($scope.valido==true){
-			$http.post('procesos/inscribir.php', 
+			$http.post('../procesos/inscribir.php', 
 			{
 				email:$scope.email,
 				nya:$scope.nya,
