@@ -14,6 +14,7 @@
 	if( ! $conexion->query($consulta)){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al ejecutar la consulta de insercion a la tabla Personas: ".$conexion->error);
+		http_response_code(500);
 		die;
 	}else{
 		//obtengo el id_persona autogenerado
@@ -27,6 +28,7 @@
 	if( ! $resultado = $conexion->query($consulta)){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al obtener el ultimo nro_inscripcion de la tabla de inscripciones: ".$conexion->error);
+		http_response_code(500);
 		die;
 	}else{
 		//obtengo el id_persona autogenerado y le sumo uno
@@ -42,6 +44,7 @@
 	if( ! $conexion->query($consulta)){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al insertar un registro en la tabla de datos de facturacion: ".$conexion->error);
+		http_response_code(500);
 		die;
 	}else{
 		//obtengo el id_persona autogenerado y le sumo uno
@@ -56,8 +59,10 @@
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al guardar un registro en la tabla Inscripciones: ".$conexion->error);
 		echo json_encode(array("resultado"=>false));
+		http_response_code(500);
 	}else{
 		echo json_encode(array("resultado"=>true));
+		http_response_code(200);
 	}
 	
 ?>
