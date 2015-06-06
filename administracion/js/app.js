@@ -1,11 +1,6 @@
 var app = angular.module('acreditacion', []);
 
-// app.controller('InscripcionCtr',function($scope,$http)
-// 	{
-		
-// 	});
-
-app.controller('AcreditacionCtr',function($scope)
+app.controller('AcreditacionCtr',function($scope,$http)
 	{
 		$scope.filtro;
 		// this.inscriptos = [
