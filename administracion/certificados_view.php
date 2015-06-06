@@ -34,7 +34,7 @@
 			<input type="text" ng-model="acreCtrl.filtro" />
 			<table class="tabla_inscriptos center">
 				<th>Apellido y Nombre</th><th>Accion</th>
-				<tr ng-repeat="insc in acreCtrl.inscriptos | filter:acreCtrl.filtro">
+				<tr ng-repeat="insc in inscriptos | filter:acreCtrl.filtro">
 				<td>{{insc.ayn}} ({{insc.email}})</td>
 				<td><a target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
 				<!-- <td ng-if="!acreCtrl.coincidencia(insc.ayn)">{{insc.ayn}} ({{insc.email}})</td>
