@@ -1,31 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="es"  ng-app="Acreditacion">
 	<head>
-		
-		<style>
-			
-			.tabla_inscriptos tr td{
-				border-bottom: 1px solid grey;
-				font-size: 0.9em;
-				background-color: white;
-				color: black;
-				margin: 0px;
-			}
-			.tabla_inscriptos th{
-				font-weight: bolder;
-				font-size: 1em;
-			}
-			.center{
-				text-align: center;
-				margin:auto;
-			}
-		</style>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="js/angular.min.js"></script>
-		<script src="js/script.js"></script>
+		<!--<script src="js/script.js"></script>-->
 		<title>Certificados</title>
 	</head>
-	<body>
+	 <body> 
 		<header>
 			<img src="images/teyet.png">
 		</header>
@@ -41,14 +22,16 @@
 			$consulta = "select per.ayn, per.correo from inscripciones as insc left join personas as per on per.id_persona = insc.id_persona";
 
 			$resultado = $conexion->query($consulta);
+			
 		?>
 		<table class="tabla_inscriptos center">
 			<th>Apellido y Nombre</th><th>Accion</th>
 			<?php while ($registro = $resultado->fetch_object()) : ?>
 			<tr>
 			<td><?php echo $registro->ayn; ?></td>
-			<td><a target="_BLANK" href="../procesos/crear.php?nombre=<?php echo strtolower(str_replace(array(' ','/'),'_',$registro->ayn)); ?>&correo=<?php echo $registro->correo; ?>" >Ver</a></td>
+			<td><a target="_BLANK" href="../procesos/crear/certificado_asistencia.php?nombre=<?php echo strtolower(str_replace(array(' ','/'),'_',$registro->ayn)); ?>&correo=<?php echo $registro->correo; ?>" >Ver</a></td>
 			</tr>
 			<?php endwhile; ?>
 		</table>
+		
 </body>

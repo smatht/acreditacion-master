@@ -1,27 +1,5 @@
 <html lang="es"  ng-app="Acreditacion">
 	<head>
-		
-		<style>
-			.tabla_inscriptos tr td{
-				
-
-			}
-			.tabla_inscriptos tr td{
-				border-bottom: 1px solid grey;
-				font-size: 0.9em;
-				background-color: white;
-				color: black;
-				margin: 0px;
-			}
-			.tabla_inscriptos th{
-				font-weight: bolder;
-				font-size: 1em;
-			}
-			.center{
-				text-align: center;
-				margin:auto;
-			}
-		</style>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="js/angular.min.js"></script>
 		<script src="js/script.js"></script>
