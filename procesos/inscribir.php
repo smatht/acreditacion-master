@@ -8,12 +8,14 @@
 	){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al intentar conectar con la base de datos: ".$conexion->connect_error);
+		echo "Error al intentar conectar con la base de datos: ".$conexion->connect_error;
 	}
 	//armo la consulta de insercion
 	$consulta = "insert into personas values (null,'$datos->nya','$datos->email','$datos->lugarDeTrabajo','$datos->universidad');";
 	if( ! $conexion->query($consulta)){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al ejecutar la consulta de insercion a la tabla Personas: ".$conexion->error);
+		echo "Error al ejecutar la consulta de insercion a la tabla Personas: ".$conexion->error;
 		http_response_code(500);
 		die;
 	}else{
@@ -28,6 +30,7 @@
 	if( ! $resultado = $conexion->query($consulta)){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al obtener el ultimo nro_inscripcion de la tabla de inscripciones: ".$conexion->error);
+		echo "Error al obtener el ultimo nro_inscripcion de la tabla de inscripciones: ".$conexion->error;
 		http_response_code(500);
 		die;
 	}else{
