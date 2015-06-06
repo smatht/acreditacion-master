@@ -22,10 +22,10 @@
 		</style>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="js/angular.min.js"></script>
-		<script src="js/script.js"></script>
+		<!--<script src="js/script.js"></script>-->
 		<title>Certificados</title>
 	</head>
-	<body>
+	 <body> 
 		<header>
 			<img src="images/teyet.png">
 		</header>
@@ -41,6 +41,7 @@
 			$consulta = "select per.ayn, per.correo from inscripciones as insc left join personas as per on per.id_persona = insc.id_persona";
 
 			$resultado = $conexion->query($consulta);
+			
 		?>
 		<table class="tabla_inscriptos center">
 			<th>Apellido y Nombre</th><th>Accion</th>
@@ -51,4 +52,5 @@
 			</tr>
 			<?php endwhile; ?>
 		</table>
+		
 </body>
