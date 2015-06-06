@@ -1,5 +1,5 @@
 <?php 
-	require_once("config.php");
+	require_once("../config.php");
 	//obtengo la conexion a la base
 	$conexion = obtener_conexion($config_servidor_bd, $config_usuario, $config_clave, $config_bd_name);
 	//cambio los nombres de las columnas
@@ -40,7 +40,7 @@
 
 		/* ADAPTACION DE DATOS A LA TABLA DE DATOS FACTURACION */	
 		$cond_iva = $registro['facturacion_condicion_iva'];
-		$consulta = "insert into datos_facturacion values (null,'".$registro['facturacion_localidad']."','".$registro['facturacion_domicilio']."','".$registro['facturacion_telefono']."',$cond_iva,'".$registro['facturacion_cuil']."')";
+		$consulta = "insert into datos_facturacion values (null,'".$registro['facturacion_localidad']."','".$registro['facturacion_domicilio']."','".$registro['facturacion_telefono']."',$cond_iva,'".$registro['facturacion_cuil']."',null,null,null)";
 		//si la consulta se ejecuto con exito, obtengo el id insertado
 		if( $conexion->query($consulta)){
 			$id_datos_facturacion = $conexion->insert_id;
@@ -69,7 +69,7 @@
 		$nro_inscripcion = $registro['nro_inscripcion'];
 		
 		//registro de la inscripcion
-		$consulta = "insert into inscripciones values ($id_persona,$nro_inscripcion, $id_tipo_insc,$id_forma_pago,0,$id_datos_facturacion,$fecha_hora,null)";
+		$consulta = "insert into inscripciones values ($id_persona,$nro_inscripcion, $id_tipo_insc,$id_forma_pago,0,$id_datos_facturacion,$fecha_hora)";
 		if( ! $conexion->query($consulta)){
 			$error = TRUE;
 		} 
