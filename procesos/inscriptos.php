@@ -31,6 +31,8 @@ require_once("../config.php");
 								"universidad"=>$registro->universidad,
 								"estado"=>$registro->id_estado_insc,
 								"localidad"=>$registro->localidad,
+								"ayn"=>$registro->ayn
+
 								
 
 								);
