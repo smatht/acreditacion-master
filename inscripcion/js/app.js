@@ -83,9 +83,11 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 				
 				$scope.inscriptos = data;
 			});
-			$http.get("../procesos/datos.php").success(function(data){
-				
-				$scope.datos = data;
+			$http.get("../procesos/get_universidades.php").success(function(data){
+				$scope.universidades = data;
+			});
+			$http.get("../procesos/get_localidades.php").success(function(data){
+				$scope.localidades = data;
 			});
 		}
 		//Select
@@ -157,8 +159,7 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 				iva:$scope.iva.id
 			})
 			.error(function(data, status, headers, config) {
-				alert(data);
-			})
+				alert(data);f})
 			.success(function(data, status, headers, config){
 				alert("Se inscribio correctamente..");
 				$scope.envioValido=true;

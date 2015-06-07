@@ -33,7 +33,7 @@
 </li>
 <li>
 		<label for="name">Establecimiento:</label>
-		<input type="text" ng-model="universidad" placeholder="Universidad" typeahead="u as u.universidad for u in datos | filter:$viewValue | limitTo:5"
+		<input type="text" ng-model="universidad" placeholder="Universidad" typeahead="u as u.universidad for u in universidades | filter:$viewValue | limitTo:5"
 typeahead-min-length='3' typeahead-on-select='onSelectUniversidad($item, $model, $label)' required>
 <li>
 		<label for="name">Lugar de Trabajo:</label>
@@ -64,7 +64,7 @@ typeahead-min-length='3' typeahead-on-select='onSelectUniversidad($item, $model,
         </li>
         <li>
             <label for="localidad">Localidad:</label>
-            <input type="text" ng-model="localidad" typeahead="u as u.localidad for u in datos | filter:$viewValue | limitTo:5"
+            <input type="text" ng-model="localidad" typeahead="u as u.localidad for u in localidades | filter:$viewValue | limitTo:5"
 typeahead-min-length='3' typeahead-on-select='onSelectLocalidad($item, $model, $label)' required autocomplete=none>
         </li>
         <li>
