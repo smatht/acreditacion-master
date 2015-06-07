@@ -9,7 +9,7 @@
 		<header>
 			<img src="images/teyet.png">
 		</header>
-		<div id="container">
+		<div id="container" ng-controller="AcreditacionCtr as acreCtrl">
 			<?php include_once("includes/menu.php"); ?>
 			<div id="buscar">
 					<label>Buscar</Label>
