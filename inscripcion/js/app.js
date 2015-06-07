@@ -157,12 +157,12 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 				iva:$scope.iva.id
 			})
 			.error(function(data, status, headers, config) {
-				console.log(status);     
+				alert(data);
 			})
 			.success(function(data, status, headers, config){
 				alert("Se inscribio correctamente..");
 				$scope.envioValido=true;
-				
+				location.href();
 			});
 			;
 		}else{
