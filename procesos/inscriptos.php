@@ -38,7 +38,10 @@ require_once("../config.php");
 								"universidad"=>$registro->universidad,
 								"estado"=>$registro->id_estado_insc,
 								"localidad"=>$registro->localidad,
-								"ayn"=>$registro->ayn
+								"ayn"=>$registro->ayn,
+								"num_ins"=>$registro->nro_inscripcion,
+								"fecha"=>date("d-m-Y H:i",$registro->fecha_hora),
+								"telefono"=>$registro->telefono
 
 								
 
