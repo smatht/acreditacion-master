@@ -1,4 +1,4 @@
-<html lang="es"  ng-app="Acreditacion">
+<html lang="es"  ng-app="acreditacion">
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="js/angular.min.js"></script>
