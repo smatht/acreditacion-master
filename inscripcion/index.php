@@ -93,8 +93,6 @@ typeahead-min-length='3' typeahead-on-select='onSelectLocalidad($item, $model, $
 </form>
 </div>
 </div>
-
-
 	 <script src="js/lib/angular.min.js"></script>
 	 <script src="js/lib/ui-bootstrap-tpls-0.9.0.js"></script>
 	 <script src="js/app.js"></script>
