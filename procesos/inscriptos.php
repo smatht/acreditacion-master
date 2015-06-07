@@ -1,4 +1,11 @@
-<?php 
+<?php
+/*
+	Datos necesarios:
+	num_ins (numero de inscripcion)
+	fecha 
+	telefono 
+*/
+
 require_once("../config.php");
 	$conexion = mysqli_connect($config_servidor_bd,$config_usuario,$config_clave,$config_bd_name);
 	if ($conexion->connect_errno) {

@@ -157,10 +157,9 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 				console.log(status);     
 			})
 			.success(function(data, status, headers, config){
-				
-				
 				alert("Se inscribio correctamente..");
-			$scope.envioValido=true;
+				$scope.envioValido=true;
+				
 			});
 			;
 		}else{
