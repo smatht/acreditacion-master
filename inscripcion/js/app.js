@@ -82,7 +82,10 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 			$http.get("../procesos/inscriptos.php").success(function(data){
 				
 				$scope.inscriptos = data;
-				console.log(data);
+			});
+			$http.get("../procesos/datos.php").success(function(data){
+				
+				$scope.datos = data;
 			});
 		}
 		//Select
