@@ -24,7 +24,7 @@
 				<tr ng-repeat="insc in inscriptos | filter:filtro">
 					<td>{{ insc.num_ins }}</td>
 					<td>{{ insc.fecha }}</td>
-					<td>{{ insc.nya }}</td>
+					<td>{{ insc.ayn }}</td>
 					<td>{{ insc.email }}</td>
 					<td>{{ insc.telefono }}</td>
 				</tr>
