@@ -35,7 +35,7 @@
 				<th>Nro. Insc.</th>
 				<th>Apellido y Nombres</th>
 				<th>Forma de Pago</th>
-				<th>Telefono</th>
+				<th>Número de Recibo</th>
 				<?php while($registro = $resultado->fetch_object()): ?>
 					<tr class="registro" id="tabla_pagos">
 						<td><?php echo $registro->nro_inscripcion; ?></td>
@@ -45,7 +45,7 @@
 							<td>
 								<form action="../procesos/registrar_pago.php" method="POST">
 									<input type="hidden" name="id_datos_fac" value="<?php echo $registro->id_datos_fac; ?>">
-									<input type="submit" value="pagar"></form>
+									<input type="submit" value="pagar" id="pagar"></form>
 							</td>
 						<?php else: ?>
 							<td title="Cobrado por <?php echo $registro->cajero; ?>">
@@ -62,7 +62,7 @@
 							<?php else: ?>
 								Nro. Fac. <?php echo $registro->nro_factura; ?>
 							<?php endif; ?>
-							<a target="_BLANK" href="../procesos/crear/comprobante_pago.php?correo=<?php echo $registro->correo; ?>">Ver Comprobante</a>
+							<a class="btn_comp_pago" target="_BLANK" href="../procesos/crear/comprobante_pago.php?correo=<?php echo $registro->correo; ?>">Ver recibo</a>
 							</td>
 						<?php endif; ?>
 					</tr>
@@ -84,8 +84,13 @@
 				$(this).parent().css("display","table-row");
 			}
 		})		
+	})
 
-	
+	$("#pagar").on("click", function(e){
+		if( ! confirm("Registrar pago?")){
+			e.preventDefault();
+			return false;
+		}
 	})
 	
 	

@@ -18,7 +18,9 @@
 										  ti.precio_insc_tard,
 										  df.localidad, 
 										  df.domicilio, 
-										  df.telefono 
+										  df.telefono,
+										  df.id_datos_fac,
+										  df.fecha_pago
 										  from inscripciones as insc 
 										  left join personas as per on per.id_persona = insc.id_persona 
 										  left join formas_pago as fp on fp.id_forma_pago = insc.id_forma_pago 
@@ -50,7 +52,7 @@
 
 			$pdf->Cell(60);
 
-			$pdf->Cell(60,10,'COMPROBANTE DE PAGO',0,0,'C');
+			$pdf->Cell(60,10,'COMPROBANTE DE PAGO NRO: '.$registro->id_datos_fac,0,0,'C');
 
 			$pdf->SetFont('Arial','',12);
 			$pdf->Ln(20);
@@ -59,11 +61,13 @@
 			$pdf->Cell(60,10,'Fecha de Inscripcion: '.date('d/m/Y', $registro->fecha_hora),2,2,'L');
 			$pdf->Cell(60,10,'Apellido y Nombre: '.$registro->ayn,2,2,'L');
 			$pdf->Cell(60,10,'Correo Electronico: '.$registro->correo,2,2,'L');
-			$pdf->Cell(60,10,'Institucion: '.$registro->universidad,2,2,'L');
+			$pdf->Cell(60,10,'Recibo a Nombre de :'.$registro->universidad,2,2,'L');
 			$pdf->Cell(60,10,'Localidad: '.$registro->localidad,2,2,'L');
 			$pdf->Cell(60,10,'Forma de Pago: '.$registro->forma_pago,2,2,'L');
+			$pdf->Cell(60,10,'Fecha de Pago: '.$registro->fecha_pago." Agregar Hora",2,2,'L');
 			$pdf->Cell(60,10,'Monto Abonado: $'.$monto,2,2,'L');
-			$pdf->Ln(30);
+			$pdf->Cell(60,10,'Numero de Recibo: _________________________',2,2,'L');
+			$pdf->Ln(10);
 			$pdf->Cell(90);
 			$pdf->Cell(60,10,'Firma',2,1,'R');
 
