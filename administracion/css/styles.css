@@ -180,6 +180,7 @@ header {
 height: 170px;
 text-align: center;
 background:-webkit-linear-gradient(top, #1e5799 0%,#2989d8 100%);
+background:-moz-linear-gradient(top, #1e5799 0%,#2989d8 100%);
 /*background-color: #640101;*/
 padding: 14px;}
 header img {
@@ -216,7 +217,8 @@ padding: 5px;
 text-align: center;
 }
 table tr {
-background:-webkit-linear-gradient(top, #1e5799 0%,#2989d8 100%); 
+background:-webkit-linear-gradient(top, #1e5799 0%,#2989d8 100%);
+background:-moz-linear-gradient(top, #1e5799 0%,#2989d8 100%); 
 color:white;
 }
 
