@@ -85,9 +85,11 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 			});
 			$http.get("../procesos/get_universidades.php").success(function(data){
 				$scope.universidades = data;
+				console.log(data);
 			});
 			$http.get("../procesos/get_localidades.php").success(function(data){
 				$scope.localidades = data;
+				console.log(data);
 			});
 		}
 		//Select
