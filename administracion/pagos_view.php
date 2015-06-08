@@ -43,10 +43,8 @@
 						<td><?php echo $registro->forma_pago; ?></td>
 						<?php if( ! $registro->fecha_pago): ?>
 							<td>
-								<form action="../procesos/registrar_pago.php" method="POST">
-									<input type="hidden" name="correo" value="<?php echo $registro->correo; ?>">
-									<input type="hidden" name="id_datos_fac" value="<?php echo $registro->id_datos_fac; ?>">
-									<input type="submit" value="pagar" id="pagar"></form>
+								<a id="pagar" target="_BLANK" href="../procesos/registrar_pago.php?correo=<?php echo $registro->correo; ?>&id_datos_fac=<?php echo $registro->id_datos_fac; ?>">Registrar Pago</a>
+								
 							</td>
 						<?php else: ?>
 							<td title="Cobrado por <?php echo $registro->cajero; ?>">
@@ -91,8 +89,12 @@
 		if( ! confirm("Registrar pago?")){
 			e.preventDefault();
 			return false;
+		}else{
+			location.reload();
 		}
+
 	})
+
 	
 	
 
