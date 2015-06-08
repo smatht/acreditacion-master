@@ -81,16 +81,13 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
  
 		function getInscriptos(){  
 			$http.get("../procesos/inscriptos.php").success(function(data){
-				
 				$scope.inscriptos = data;
 			});
 			$http.get("../procesos/get_universidades.php").success(function(data){
 				$scope.universidades = data;
-				console.log(data);
 			});
 			$http.get("../procesos/get_localidades.php").success(function(data){
 				$scope.localidades = data;
-				console.log(data);
 			});
 		}
 		//Select
@@ -119,7 +116,8 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 
 		$scope.validarMail= function()
 		{
-			for each (var ins in $scope.inscriptos)
+			$scope.inscriptos.every(
+			function(ins, index, array) 
 			{
  				 if(ins.email==$scope.email)
  				 {
@@ -138,7 +136,7 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 		}
 		function mensaje(ins)
 		{
-			$scope.detalleRegistro="Registado por "+ins.detalle
+			$scope.detalleRegistro="Registado por "+ins.detalle;
 			return false;
 		}
 		$scope.enviar = function(){
