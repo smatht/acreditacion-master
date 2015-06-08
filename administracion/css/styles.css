@@ -1,32 +1,3 @@
-.tabla_inscriptos tr td{
-	border-bottom: 1px solid grey;
-	font-size: 0.9em;
-	background-color: white;
-	color: black;
-	margin: 0px;
-}
-.tabla_inscriptos th{
-	font-weight: bolder;
-	font-size: 1em;
-}
-.center{
-	text-align: center;
-	margin:auto;
-}
-.lista_menu li{
-	display: inline;
-	padding: 2px 5px 2px 5px;
-	background-color: #222299;
-
-}
-#container li a{
-	text-decoration: none;
-	color: white;
-	
-}
-#content-2 tr td a{
-	color: white;
-}
 * {
  font-family: Arial, sans;
  margin: 0;
@@ -34,34 +5,60 @@
  box-sizing: border-box;
  -moz-box-sizing: border-box;
 }
-body {
-background-color: aliceblue;
-}
-h1, h2, h3 {
- padding: 1em 0;
- text-align: center;
-}
-#container {
- margin: 0 auto;
- width: 80%; /* Ancho del contenedor */
- background: white;
--webkit-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
--moz-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
-border-radius: 0 .25em .25em .25em;
-min-height: 48.7em;
-position: relative;
-z-index: 5;
-}
-#container ul {
- list-style-type: none;
+
+body {background-color: aliceblue;}
+
+h1, h2, h3 {padding: 1em 0;text-align: center;}
+
+#container ul {list-style-type: none; margin-bottom: 10px;}
+#container li a{ text-decoration: none;	color: white;}
+
+.tabla_inscriptos {}
+.tabla_inscriptos th {font-weight: bolder;font-size: 1em;}
+.tabla_inscriptos tr td {
+	border-bottom: 1px solid grey;
+	font-size: 0.9em;
+	background-color: white;
+	color: black;
+	margin: 0px;
 }
 
-#container #buscar {
+.center{
+	text-align: center;
+	margin:auto;
+}
+/*.lista_menu li{
+	display: inline;
+	padding: 2px 5px 2px 5px;
+	background-color: #222299;
+
+}*/
+
+/*#content-2 tr td a{
+	color: white;
+}*/
+
+
+#container {
+	margin: 0 auto;
+	width: 80%; /* Ancho del contenedor */
+	background: white;
+	-webkit-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+	-moz-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+	box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+	border-radius: 0 .25em .25em .25em;
+	min-height: 48.7em;
+	position: relative;
+	z-index: 5;
+}
+
+
+#buscar {padding: 5px;}
+/*#container #buscar {
  height: 2.5em;
  visibility: visible;
  float: right;
-}
+}*/
 #container li input {
  height: 2.5em;
  visibility: visible;
@@ -77,20 +74,32 @@ float: left;
 
 }
 #container a {
-background: #d3ab06; */
- border-radius: .25em .25em 0 0;
-color: black;
- /*color: #888;*/ 
- cursor: pointer;
- display: block;
- float: left;
- font-size: 11pt; 
- height: 2.5em;
- line-height: 2.5em;
- margin-right: .25em;
- padding: 0 1.5em;
- /*text-align: center;*/
+	background: #d3ab06;
+	color: black;
+ 	cursor: pointer;
+ 	display: block;
+ 	float: left;
+ 	font-size: 11pt; 
+ 	height: 2.5em;
+ 	line-height: 2.5em;
+ 	margin-right: .25em;
+ 	padding: 0 1.5em;
 }
+
+#container .tabla_inscriptos a {
+	background: #d3ab06; 
+ 	border-radius: 5px;
+	/*color: black;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 11pt; 
+	height: 2.5em;
+	line-height: 2.5em;
+	margin-right: .25em;
+	padding: 0 1.5em;*/
+}
+
 #container li label {
  width: 45%;
  cursor: default;
