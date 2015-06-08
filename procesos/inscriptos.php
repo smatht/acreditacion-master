@@ -1,12 +1,5 @@
 <?php
-/*
-	Datos necesarios:
-	num_ins (numero de inscripcion)
-	fecha 
-	telefono 
-*/
-
-require_once("../config.php");
+	require_once("../config.php");
 	$conexion = mysqli_connect($config_servidor_bd,$config_usuario,$config_clave,$config_bd_name);
 	if ($conexion->connect_errno) {
 		echo "Fallo al contenctar a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
@@ -32,22 +25,21 @@ require_once("../config.php");
 										  left join condiciones_iva as ci on ci.id_cond_iva = df.condicion_iva 
 										  order by insc.fecha_hora");
 
+
 	while ($registro = $resultado->fetch_object()){
-		$json[] = array("email"=>$registro->correo,
-								"detalle"=>$registro->correo.",".utf8_encode($registro->ayn).", ".$registro->localidad,
-								"universidad"=>$registro->universidad,
-								"estado"=>$registro->id_estado_insc,
-								"localidad"=>$registro->localidad,
-								"ayn"=>utf8_encode($registro->ayn),
-								"num_ins"=>$registro->nro_inscripcion,
-								"fecha"=>date("d-m-Y H:i",$registro->fecha_hora),
-								"telefono"=>$registro->telefono
-
-								
-
-								);
-				
-				
-	}
+		$json[] = array("email"=>utf8_encode($registro->correo),
+						"detalle"=>utf8_encode($registro->correo.", ".$registro->ayn.", ".$registro->localidad),
+						"universidad"=>utf8_encode($registro->universidad),
+						"estado"=>utf8_encode($registro->id_estado_insc),
+						"localidad"=>utf8_encode($registro->localidad),
+						"ayn"=>utf8_encode($registro->ayn),
+						"num_ins"=>utf8_encode($registro->nro_inscripcion),
+						"fecha"=>date("d-m-Y H:i",$registro->fecha_hora),
+						"telefono"=>utf8_encode($registro->telefono)
+						); 
+		
+	}; 
 	echo json_encode($json);
+	
+	
 ?>
