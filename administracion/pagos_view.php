@@ -5,7 +5,7 @@
 		echo "Fallo al contenctar a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
 		die;
 	}else{
-		$consulta = "select insc.nro_inscripcion, per.ayn, fp.forma_pago, df.id_datos_fac, df.fecha_pago, df.nro_factura, df.cajero
+		$consulta = "select insc.nro_inscripcion, per.ayn, per.correo, fp.forma_pago, df.id_datos_fac, df.fecha_pago, df.nro_factura, df.cajero
 					from inscripciones as insc
 					left join personas as per on per.id_persona = insc.id_persona
 					left join datos_facturacion as df on df.id_datos_fac = insc.id_datos_fac
@@ -42,17 +42,22 @@
 									<input type="submit" value="pagar"></form>
 							</td>
 						<?php else: ?>
+							<td title="Cobrado por <?php echo $registro->cajero; ?>">
 							<?php if( ! $registro->nro_factura): ?>
-								<td title="Cobrado por <?php echo $registro->cajero; ?>">
+								
 									<form action="../procesos/registrar_numero_factura.php" method="POST">
 										<input type="hidden" name="id_datos_fac" value="<?php echo $registro->id_datos_fac; ?>">
 										<input type="text" name="nro_factura" id="nro_factura">
 										<input type="submit" value="Guardar">
+										
 									</form>
-								</td>
+
+								
 							<?php else: ?>
-								<td>Nro. Fac. <?php echo $registro->nro_factura; ?></td>
+								Nro. Fac. <?php echo $registro->nro_factura; ?>
 							<?php endif; ?>
+							<a target="_BLANK" href="../procesos/crear/comprobante_pago.php?correo=<?php echo $registro->correo; ?>">Ver Comprobante</a>
+							</td>
 						<?php endif; ?>
 					</tr>
 				<?php endwhile; ?>
