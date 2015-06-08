@@ -20,7 +20,12 @@
 
 		<div ng-controller="AcreditacionCtr">
 			
-			<span ng-include="'includes/campo_busqueda.html'"></span>
+			<div id="buscar" class="form-group form-inline">
+			<div class="input-group">
+				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+				<input name="search" class="form-control" type="text" ng-model="filtro" />
+			</div>
+			</div>
 			
 			<table class="tabla_inscriptos">
 				<th>Apellido y Nombre</th><th>Accion</th>
