@@ -16,22 +16,18 @@
 	<div id="container">
 		
 		<?php include_once("includes/menu.php"); ?>
-		<div ng-controller="AcreditacionCtr as acreCtrl">
+		<div ng-controller="AcreditacionCtr">
 			
 			<div id="buscar">
 				<label>Buscar</Label>
-				<input type="text" ng-model="acreCtrl.filtro" />
+				<input type="text" ng-model="filtro" />
 			</div>
 			
 			<table class="tabla_inscriptos">
 				<th>Apellido y Nombre</th><th>Accion</th>
-				<tr ng-repeat="insc in inscriptos | filter:acreCtrl.filtro">
+				<tr ng-repeat="insc in inscriptos | filter:filtro">
 					<td>{{ insc.ayn }} ({{ insc.email }})</td>
 					<td><a target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
-					
-					<!-- <td ng-if="!acreCtrl.coincidencia(insc.ayn)">{{insc.ayn}} ({{insc.email}})</td>
-					<td ng-if="!acreCtrl.coincidencia(insc.ayn)"><a target="_BLANK" href="../procesos/crear.php?nombre=<?php //echo strtolower(str_replace(array(' ','/'),'_',$registro->ayn)); ?>&correo=<?php //echo $registro->correo; ?>" >Ver</a></td> -->
-
 				</tr>
 			</table>
 		
