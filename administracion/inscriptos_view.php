@@ -13,7 +13,7 @@
 		</header>
 		<div id="container" ng-controller="AcreditacionCtr as acreCtrl">
 			<?php include_once("includes/menu.php"); ?>
-			<?php include_once("includes/campo_busqueda.php"); ?>
+			<span ng-include="includes/campo_busqueda.html"></span>
 			<table class="tabla_inscriptos">
 				<th>Nro. Insc.</th>
 				<th>Fecha/Hora</th>

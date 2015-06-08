@@ -20,7 +20,7 @@
 
 		<div ng-controller="AcreditacionCtr">
 			
-			<?php include_once("includes/campo_busqueda.php"); ?>
+			<span ng-include="includes/campo_busqueda.html"></span>
 			
 			<table class="tabla_inscriptos">
 				<th>Apellido y Nombre</th><th>Accion</th>
