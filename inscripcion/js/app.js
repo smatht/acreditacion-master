@@ -119,8 +119,7 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 
 		$scope.validarMail= function()
 		{
-			$scope.inscriptos.every(
-				function(ins, index, array) 
+			for each (var ins in $scope.inscriptos)
 			{
  				 if(ins.email==$scope.email)
  				 {
@@ -164,9 +163,9 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 			.error(function(data, status, headers, config) {
 				alert(data);})
 			.success(function(data, status, headers, config){
-				alert("Se inscribio correctamente..");
+				alert("Se inscribio correctamente, por favor diríjase a pago..");
 				$scope.envioValido=true;
-				location.href();
+				window.location.reload();
 			});
 			;
 		}else{
