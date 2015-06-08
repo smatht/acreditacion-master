@@ -24,6 +24,7 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 					id:2
 				}
 			];
+		$scope.formaDePago=$scope.selectTipodePago[0];
 		$scope.selectTipodeInscripcion=
 			[
 				{
