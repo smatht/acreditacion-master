@@ -44,6 +44,7 @@
 						<?php if( ! $registro->fecha_pago): ?>
 							<td>
 								<form action="../procesos/registrar_pago.php" method="POST">
+									<input type="hidden" name="correo" value="<?php echo $registro->correo; ?>">
 									<input type="hidden" name="id_datos_fac" value="<?php echo $registro->id_datos_fac; ?>">
 									<input type="submit" value="pagar" id="pagar"></form>
 							</td>
