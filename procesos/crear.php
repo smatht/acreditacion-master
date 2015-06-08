@@ -17,7 +17,7 @@
 	$texto_cabecera = "por haber cumplido la asistencia al evento sarasa...";
 	$nombre = $_GET['nombre'];
 	
-	$nombre = strtoupper($nombre);
+	$nombre = mb_strtoupper($nombre);
 	$nom_count = strlen($nombre);
 	
 	//formula para cuadrar el nombre en el certificado dependiendo su longitud
@@ -40,7 +40,7 @@
 	$pdf->SetFont('Arial','B', 30);
 	$pdf->SetTextColor(0,0,0);
 	$pdf->SetXY($x, 90);
-	$pdf->Write(0, str_replace(array("_","/")," ",$nombre));
+	$pdf->Write(0, str_replace(array("_","/")," ",utf8_decode($nombre)));
 	
 	$nombre_archivo = strtolower('diplomas/'.str_replace(array(' ','/'),'_',$_GET['nombre'].'('.$_GET['correo'].').pdf'));
 	$pdf->Output($nombre_archivo,'I');
