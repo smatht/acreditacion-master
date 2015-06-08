@@ -34,11 +34,11 @@ require_once("../config.php");
 
 	while ($registro = $resultado->fetch_object()){
 		$json[] = array("email"=>$registro->correo,
-								"detalle"=>$registro->correo.",".$registro->ayn.", ".$registro->localidad,
+								"detalle"=>$registro->correo.",".utf8_encode($registro->ayn).", ".$registro->localidad,
 								"universidad"=>$registro->universidad,
 								"estado"=>$registro->id_estado_insc,
 								"localidad"=>$registro->localidad,
-								"ayn"=>$registro->ayn,
+								"ayn"=>utf8_encode($registro->ayn),
 								"num_ins"=>$registro->nro_inscripcion,
 								"fecha"=>date("d-m-Y H:i",$registro->fecha_hora),
 								"telefono"=>$registro->telefono
