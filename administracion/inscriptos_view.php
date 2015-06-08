@@ -5,6 +5,7 @@
 		<script src="js/angular.min.js"></script>
 		<script src="js/app.js"></script>
 		<title>Certificados</title>
+		<meta charset="utf-8">
 	</head>
 	<body>
 		<header>

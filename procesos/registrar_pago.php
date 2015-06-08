@@ -8,7 +8,7 @@
 		$id_datos_fac = $_POST['id_datos_fac'];
 		$consulta = "update datos_facturacion set fecha_pago = ".date("d-m-Y").", cajero = 'CAJERO_POR_DEFECTO' where id_datos_fac = ".$id_datos_fac;
 		$conexion->query($consulta);
-		header("Location: ../administracion/pagos_view.php");
+		header("Location: crear/comprobante_pago.php?correo=victor.obrist@gmail.com");
 	}
 
 ?>

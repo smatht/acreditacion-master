@@ -17,10 +17,11 @@
 	<div id="container">
 		
 		<?php include_once("includes/menu.php"); ?>
-		<div ng-controller="AcreditacionCtr as acreCtrl">
 
+		<div ng-controller="AcreditacionCtr">
+			
 			<?php include_once("includes/campo_busqueda.php"); ?>
-
+			
 			<table class="tabla_inscriptos">
 				<th>Apellido y Nombre</th><th>Accion</th>
 				<tr ng-repeat="insc in inscriptos | filter:filtro">
