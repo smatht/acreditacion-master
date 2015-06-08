@@ -4,6 +4,8 @@
 	$conexion = obtener_conexion($config_servidor_bd, $config_usuario, $config_clave, $config_bd_name);
 	//cambio los nombres de las columnas
 	renombrar_columnas($conexion);
+	//elimina los datos duplicados
+	//eliminar_duplicados($conexion);
 	//intento adaptar el tipo de iva escrito a uno existente en la base
 	adaptar_tipo_iva($conexion);
 	//quito todos los acentos
@@ -12,21 +14,21 @@
 	eliminar_datos_prueba($conexion);
 	//rellenar campos vacios
 	rellenar_vacios($conexion);
-	//elimino todas las entradas duplicadas (de personas)
-	eliminar_duplicados($conexion);
 
 	//variable que contabiliza la cantidad de registros adaptados correctamente
 	$cant = 0;
 
 	//obtengo todos los datos de la tabla original
 	$consulta = "select * from original";
+
 	$resultados = $conexion->query($consulta);
+
 	//mientras tenga registros por leer, distribuyo sus datos en las tablas correspondientes
 	while($registro = $resultados->fetch_array()){
-		
+			
 		/*variable que controla si el ocurrió un error al intentar 
 		adaptar el registro a la nueva estructura*/
-		$error = FALSE;
+		$error = "";
 
 		/* ADAPTACION DE DATOS A LA TABLA DE PERSONAS */
 		$consulta = "insert into personas values (null,'".$registro['nombre']."','".$registro['correo']."','Sin informacion','".$registro['universidad']."')";
@@ -35,7 +37,11 @@
 		if( $conexion->query($consulta)){
 			$id_persona = $conexion->insert_id;
 		}else{
-			$error = TRUE;
+			$error .= " - Ins. Personas ";
+			echo "Nombre: ".$registro['nombre']."<br>";
+			echo "Correo: ".$registro['correo']."<br>";
+			echo "Universidad: ".$registro['universidad']."<br>";
+			
 		} 
 
 		/* ADAPTACION DE DATOS A LA TABLA DE DATOS FACTURACION */	
@@ -45,7 +51,13 @@
 		if( $conexion->query($consulta)){
 			$id_datos_facturacion = $conexion->insert_id;
 		}else{
-			$error = TRUE;
+			$error .= " - Ins. Facturacion ";
+			echo "Localidad: ".$registro['facturacion_localidad']."<br>";
+			echo "Domicilio: ".$registro['facturacion_domicilio']."<br>";
+			echo "telefono: ".$registro['facturacion_telefono']."<br>";
+			echo "Condicion IVA: ".$cond_iva."<br>";
+			echo "CUIL: ".$registro['facturacion_cuil']."<br>";
+
 		} 
 		
 		/* ADAPTACION DE DATOS A LA TABLA DE INSCRIPCIONES */
@@ -71,20 +83,26 @@
 		//registro de la inscripcion
 		$consulta = "insert into inscripciones values ($id_persona,$nro_inscripcion, $id_tipo_insc,$id_forma_pago,0,$id_datos_facturacion,$fecha_hora)";
 		if( ! $conexion->query($consulta)){
-			$error = TRUE;
+			$error .= " - Ins. Inscripciones ";
+			echo "id_persona: ".$id_persona."<br>";
+			echo "Nro. Inscripcion: ".$nro_inscripcion."<br>";
+			echo "Tipo Inscripcion: ".$id_tipo_insc."<br>";
+			echo "Forma de Pago: ".$id_forma_pago."<br>";
+			echo "Id Datos Fac: ".$id_datos_facturacion."<br>";
+			echo "Fecha Hora: ".$fecha_hora."<br>";
 		} 
 		
 		
 		//resultado al usuario...
-		if( ! $error){
-			echo "<span style='color: #1FBF00'>".$registro['nombre']." (".$registro['correo'].") adaptado con exito.</span><br>";
+		if(strlen($error) == 0){
+			echo "<span style='color: #1FBF00'>".$registro['nombre']." (".$registro['correo'].") adaptado con exito. </span><br>";
 			$cant++;
 		}else{
-			echo "<span style='color: red'>".$registro['nombre']." (".$registro['correo'].") no pudo ser adaptado.</span><br>";
+			echo "<span style='color: red'>".$registro['nombre']." (".$registro['correo'].") no pudo ser adaptado. $error</span><br>";
 		} 
 		
 	}
-	echo $cant." registros adaptados.";
+	echo $cant." registros adaptados."; 
 
 
 	//sentencias con intentos de mejoras...
@@ -135,18 +153,20 @@
 
 	function adaptar_tipo_iva($conexion){
 		//responsable Inscripto
-		$conexion->query("update original set facturacion_condicion_iva = '2' where facturacion_condicion_iva like '%espon%' or facturacion_condicion_iva like '%crip%';");
+		$conexion->query("update original set facturacion_condicion_iva = 0 where facturacion_condicion_iva like '%esp%'");
 		//Exento
-		$conexion->query("update original set facturacion_condicion_iva = '4' where facturacion_condicion_iva like '%ent%' or facturacion_condicion_iva like '%xen%' or facturacion_condicion_iva like '%xce%';");
+		$conexion->query("update original set facturacion_condicion_iva = 2 where facturacion_condicion_iva like '%ent%' or facturacion_condicion_iva like '%xen%' or facturacion_condicion_iva like '%xce%';");
 		//Consumidor Final
-		$conexion->query("update original set facturacion_condicion_iva = '3' where facturacion_condicion_iva like '%inal%' or facturacion_condicion_iva like '%cons%' or facturacion_condicion_iva like '%fina%';");
+		$conexion->query("update original set facturacion_condicion_iva = 1 where facturacion_condicion_iva like '%inal%' or facturacion_condicion_iva like '%cons%' or facturacion_condicion_iva like '%fina%';");
 		//Monotributista
-		$conexion->query("update original set facturacion_condicion_iva = '5' where facturacion_condicion_iva like '%onot%' or facturacion_condicion_iva like '%buto%' or facturacion_condicion_iva like '%ibut%';");
+		$conexion->query("update original set facturacion_condicion_iva = 3 where facturacion_condicion_iva like '%onot%' or facturacion_condicion_iva like '%buto%' or facturacion_condicion_iva like '%ibut%';");
 		//Desconocido
-		$conexion->query("update original set facturacion_condicion_iva = '1' where facturacion_condicion_iva not in (2,3,4,5);");
+		$conexion->query("update original set facturacion_condicion_iva = 4 where facturacion_condicion_iva not in (0,1,2,3) or facturacion_condicion_iva like '%formac%';");
+		$conexion->query("update original set facturacion_condicion_iva = 4 where facturacion_condicion_iva not in ('0','1','2','3','4');");
 	}
 
 	function rellenar_vacios($conexion){
+		$conexion->query("update original set universidad = 'Sin informacion' where universidad = '' or universidad is null");
 		$conexion->query("update original set facturacion_cuil = 'Sin informacion' where facturacion_cuil = '' or facturacion_cuil is null");
 		$conexion->query("update original set facturacion_institucion = 'Sin informacion' where facturacion_institucion = '' or facturacion_institucion is null");
 		$conexion->query("update original set facturacion_localidad = 'Sin informacion' where facturacion_localidad = '' or facturacion_localidad is null");
@@ -208,14 +228,17 @@
 	}
 
 	function eliminar_datos_prueba($conexion){
-		$consulta = "DELETE FROM datos_facturacion";
-		if($conexion->query($consulta) ){
-			echo "<span style='color:red; font-weight: bolder'>Datos de facturacion borrados!</span><br>";
-		}
 		$consulta = "DELETE FROM inscripciones";
 		if($conexion->query($consulta) ){
 			echo "<span style='color:red; font-weight: bolder'>Datos de inscripciones borrados!</span><br>";
 		}
+		$consulta = "DELETE FROM datos_facturacion";
+		if($conexion->query($consulta) ){
+			echo "<span style='color:red; font-weight: bolder'>Datos de facturacion borrados!</span><br>";
+		}
+
+
+		
 		$consulta = "DELETE FROM personas";
 		if($conexion->query($consulta) ){
 			echo "<span style='color:red; font-weight: bolder'>Datos de personas borrados!</span><br>";
