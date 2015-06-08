@@ -47,7 +47,7 @@
 								
 							</td>
 						<?php else: ?>
-							<td title="Cobrado por <?php echo $registro->cajero; ?>">
+							<td title="Cobrado por <?php echo $registro->cajero;?>">
 							<?php if( ! $registro->nro_factura): ?>
 								
 									<form action="../procesos/registrar_numero_factura.php" method="POST">
