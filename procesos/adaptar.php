@@ -46,7 +46,7 @@
 
 		/* ADAPTACION DE DATOS A LA TABLA DE DATOS FACTURACION */	
 		$cond_iva = $registro['facturacion_condicion_iva'];
-		$consulta = "insert into datos_facturacion values (null,'".$registro['facturacion_localidad']."','".$registro['facturacion_domicilio']."','".$registro['facturacion_telefono']."',$cond_iva,'".$registro['facturacion_cuil']."',null,null,null)";
+		$consulta = "insert into datos_facturacion values (null,'".$registro['nombre']."','".$registro['facturacion_localidad']."','".$registro['facturacion_domicilio']."','".$registro['facturacion_telefono']."',$cond_iva,'".$registro['facturacion_cuil']."',null,null,null)";
 		//si la consulta se ejecuto con exito, obtengo el id insertado
 		if( $conexion->query($consulta)){
 			$id_datos_facturacion = $conexion->insert_id;
