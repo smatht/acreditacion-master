@@ -12,9 +12,9 @@
 		<div id="container" ng-controller="AcreditacionCtr as acreCtrl">
 			<?php include_once("includes/menu.php"); ?>
 			<div id="buscar">
-					<label>Buscar</Label>
-					<input type="text" ng-model="filtro" />
-				</div>
+				<label>Buscar</Label>
+				<input type="text" ng-model="filtro" />
+			</div>
 			<table class="tabla_inscriptos">
 				<th>Nro. Insc.</th>
 				<th>Fecha/Hora</th>
