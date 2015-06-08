@@ -17,14 +17,20 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<title>Gestion de Pagos</title>
+		<meta charset="UTF-8">
 	</head>
 	<body>
 		<header>
 			<img src="images/teyet.png">
 		</header>
 		<div id="container" ng-controller="AcreditacionCtr as acreCtrl">
+			
 			<?php include_once("includes/menu.php"); ?>
-			<input type="text" name="buscar" id="buscar">
+			<div id="buscar">
+				<label>Buscar</label>
+				<input type="text" name="buscar" id="search">	
+			</div>
+			
 			<table class="tabla_inscriptos">
 				<th>Nro. Insc.</th>
 				<th>Apellido y Nombres</th>
@@ -33,7 +39,7 @@
 				<?php while($registro = $resultado->fetch_object()): ?>
 					<tr class="registro" id="tabla_pagos">
 						<td><?php echo $registro->nro_inscripcion; ?></td>
-						<td class="ayn"><?php echo $registro->ayn; ?></td>
+						<td class="ayn"><?php echo utf8_encode($registro->ayn); ?></td>
 						<td><?php echo $registro->forma_pago; ?></td>
 						<?php if( ! $registro->fecha_pago): ?>
 							<td>
@@ -68,10 +74,10 @@
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script>
 	//cuando se escriba algo en el campo buscar
-	$("#buscar").on("keyup",function(){
+	$("#search").on("keyup",function(){
 		$(".ayn").each(function(){
 			
-			if( $(this).html().toLowerCase().indexOf(   $("#buscar").prop("value").toLowerCase()   ) < 0 ) {
+			if( $(this).html().toLowerCase().indexOf(   $("#search").prop("value").toLowerCase()   ) < 0 ) {
 				console.log($(this))
 				$(this).parent().css("display","none");
 			}else{
