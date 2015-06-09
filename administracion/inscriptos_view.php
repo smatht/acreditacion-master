@@ -17,7 +17,7 @@
 			<div class="input-group">
 				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
 
-				<input name="search" class="form-control" type="text" ng-model="filtro" />
+				<input name="search" class="form-control" type="text" ng-model="filtro" autofocus />
 			</div>
 			</div>
 			<table class="tabla_inscriptos">

@@ -32,7 +32,7 @@
 			<div class="input-group">
 				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span>
 				</div>
-				<input name="buscar"  id="search" class="form-control" type="text"/>
+				<input name="buscar"  id="search" class="form-control" type="text" autofocus />
 			</div>
 			</div>
 			
