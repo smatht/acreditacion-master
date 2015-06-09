@@ -22,14 +22,15 @@
 			
 			<div id="buscar" class="form-group form-inline">
 			<div class="input-group">
-				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span>
+				</div>
 				<input name="search" class="form-control" type="text" ng-model="filtro" />
 			</div>
 			</div>
 			
 			<table class="tabla_inscriptos">
 				<th>Apellido y Nombre</th><th>Accion</th>
-				<tr ng-repeat="insc in inscriptos | filter:filtro">
+				<tr ng-repeat="insc in inscriptos | filter: filtro">
 					<td>{{ insc.ayn }} ({{ insc.email }})</td>
 					<td><a target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
 				</tr>

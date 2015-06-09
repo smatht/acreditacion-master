@@ -16,6 +16,7 @@
 <html lang="es">
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<title>Gestion de Pagos</title>
 		<meta charset="UTF-8">
 	</head>
@@ -23,12 +24,16 @@
 		<header>
 			<img src="images/teyet.png">
 		</header>
-		<div id="container" ng-controller="AcreditacionCtr as acreCtrl">
+		<div id="container">
 			
 			<?php include_once("includes/menu.php"); ?>
-			<div id="buscar">
-				<label>Buscar</label>
-				<input type="text" name="buscar" id="search">	
+			
+			<div id="buscar" class="form-group form-inline">
+			<div class="input-group">
+				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span>
+				</div>
+				<input name="buscar"  id="search" class="form-control" type="text"/>
+			</div>
 			</div>
 			
 			<table class="tabla_inscriptos">
