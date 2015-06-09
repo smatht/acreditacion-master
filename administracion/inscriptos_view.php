@@ -4,7 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<script src="js/angular.min.js"></script>
 		<script src="js/app.js"></script>
-		<title>Certificados</title>
+		<title>Inscriptos</title>
 		<meta charset="utf-8">
 	</head>
 	<body>
@@ -13,7 +13,12 @@
 		</header>
 		<div id="container" ng-controller="AcreditacionCtr as acreCtrl">
 			<?php include_once("includes/menu.php"); ?>
-			<span ng-include="'includes/campo_busqueda.html'"></span>
+			<div id="buscar" class="form-group form-inline">
+			<div class="input-group">
+				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+				<input name="search" class="form-control" type="text" ng-model="filtro" />
+			</div>
+			</div>
 			<table class="tabla_inscriptos">
 				<th>Nro. Insc.</th>
 				<th>Fecha/Hora</th>

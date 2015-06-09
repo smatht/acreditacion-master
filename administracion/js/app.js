@@ -1,7 +1,9 @@
 var app = angular.module('acreditacion', []);
 
-app.controller('AcreditacionCtr',function($scope,$http)
+
+app.controller('AcreditacionCtr',function($scope,$http,$location)
 	{
+
 		getInscriptos();
 		function getInscriptos(){  
 			$http.get("../procesos/inscriptos.php")
@@ -11,11 +13,3 @@ app.controller('AcreditacionCtr',function($scope,$http)
 		}
 	});
 
-/*app.controller('TabsController', function () {
-    this.tab = 1;
-
-    this.selectTab = function (tab) {
-      this.tab = tab;
-    };
-
-  });*/

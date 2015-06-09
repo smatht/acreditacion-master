@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es"  ng-app="acreditacion">
 <head>
 	<meta charset="utf-8">

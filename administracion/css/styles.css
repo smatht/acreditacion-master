@@ -237,7 +237,7 @@ width: 100%;
 overflow: hidden;
 }
 
-#activo {
+.activo {
 background: white !important;
 color: #1e5799 !important;
 border-bottom: 5px solid #1e5799;
