@@ -16,7 +16,8 @@
 										  ci.condicion_iva, 
 										  df.localidad, 
 										  df.domicilio, 
-										  df.telefono 
+										  df.telefono,
+										  df.fecha_pago 
 										  from inscripciones as insc 
 										  left join personas as per on per.id_persona = insc.id_persona 
 										  left join formas_pago as fp on fp.id_forma_pago = insc.id_forma_pago 
@@ -35,6 +36,7 @@
 						"ayn"=>utf8_encode($registro->ayn),
 						"num_ins"=>utf8_encode($registro->nro_inscripcion),
 						"fecha"=>date("d-m-Y H:i",$registro->fecha_hora),
+						"fecha_pago"=>$registro->fecha_pago,
 						"telefono"=>utf8_encode($registro->telefono)
 						); 
 		
