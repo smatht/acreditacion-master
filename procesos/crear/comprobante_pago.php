@@ -84,7 +84,7 @@
 			}else{
 				$pdf->Cell(60,8,'Forma de Pago: Sin Información',2,2,'L');
 			}
-			$pdf->Cell(60,8,'Fecha de Pago: '.$registro->fecha_pago,2,2,'L');
+			$pdf->Cell(60,8,'Fecha de Pago: '.date("d/m/Y - H:i:s",strtotime($registro->fecha_pago)),2,2,'L');
 			$pdf->Cell(60,8,'Monto Abonado: $'.$monto.",00.-",2,2,'L');
 			$pdf->Cell(60,10,'Numero de Recibo: _________________________',2,2,'L');
 			$pdf->Ln(12);
