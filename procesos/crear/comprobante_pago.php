@@ -63,8 +63,8 @@
 			$pdf->Cell(60,7,'Fecha de Inscripcion: '.date('d/m/Y', $registro->fecha_hora),2,2,'L');
 			$pdf->Cell(60,7,'Apellido y Nombre: '.$registro->ayn,2,2,'L');
 			$pdf->Cell(60,7,'Correo Electronico: '.$registro->correo,2,2,'L');
-			$pdf->rect(65,51,100,70);
-			$pdf->rect(65,193,100,70);
+			$pdf->rect(65,51,100,62);
+			$pdf->rect(65,193,100,62);
 			$pdf->Cell(60,7,'Recibo a Nombre de: ',2,2,'L');
 			$pdf->SetFont('Arial','BI',11);
 			$pdf->Cell(90,4,ucwords($registro->institucion),2,2,'C');
