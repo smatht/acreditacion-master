@@ -93,6 +93,7 @@ float: left;
 }
 
 #container .tabla_inscriptos a {
+	text-decoration: none;
 	color: #FFFFFF;
 	font-weight: bold;
 	background: #2887D6; 
