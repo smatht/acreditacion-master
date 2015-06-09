@@ -42,7 +42,7 @@
 
 	
 	/* Inserto la informacion en la tabla de datos de facturacion */
-	$consulta = "insert into datos_facturacion values (null,'$datos->localidad','$datos->domicilio','$datos->tel',$datos->iva,'$datos->dni',null,null,null);";
+	$consulta = "insert into datos_facturacion values (null,'$datos->nombreInst','$datos->localidad','$datos->domicilio','$datos->tel',$datos->iva,'$datos->dni',null,null,null);";
 	if( ! $conexion->query($consulta)){
 		$archivo = fopen("error.txt",'w+');
 		fwrite($archivo,"Error al insertar un registro en la tabla de datos de facturacion: ".$conexion->error);

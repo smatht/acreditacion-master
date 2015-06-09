@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="es" ng-app="acreditacion">
 <head>
@@ -21,7 +22,7 @@
 					</li>
 					<li>
 						<label for="email">Correo de Contacto:</label>
-						<input type="email"  ng-class="mailValido" ng-model="email" ng-change="validarMail()" placeholder="Ej: juan.perez@mail.com">
+						<input type="email"  ng-class="mailValido" ng-model="email" ng-change="validarMail()" placeholder="Ej: juan.perez@mail.com" required />
 					</li>
 					<span ng-hide="valido">
 						<p>{{detalleRegistro}}</p>
@@ -29,16 +30,16 @@
 					</br>
 					<li>
 						<label for="name">Nombre y Apellido:</label>
-						<input type="text" id="nya" ng-model="nya" placeholder="Ej: Juan Pérez"/>
+						<input type="text" id="nya" ng-model="nya" placeholder="Ej: Juan Pérez" required/>
 					</li>
 					<li>
 						<label for="name">Establecimiento:</label>
 						<input type="text" ng-model="universidad" placeholder="Ej: FaCENA, ISFD N°1" typeahead="u as u.universidad for u in universidades | filter:$viewValue | limitTo:5"
-						typeahead-min-length='3' typeahead-on-select='onSelectUniversidad($item, $model, $label)'>
+						typeahead-min-length='3' typeahead-on-select='onSelectUniversidad($item, $model, $label)' required>
 					</li>
 					<li>
 						<label for="name">Lugar de Trabajo:</label>
-						<input type="text"  ng-model="lugarDeTrabajo" placeholder="(opcional)"  />
+						<input type="text"  ng-model="lugarDeTrabajo" placeholder="(opcional)" required />
 					</li>
 					<li>
 						<label for="payment">Forma de Pago:</label>
@@ -57,7 +58,7 @@
 					</li>
 					<li>
 						<label for="dni">CUIT/CUIL/DNI:</label>
-						<input type="text" ng-model="dni" name="dni" placeholder="Ej: '17123765', '20-17123765-1'" />
+						<input type="text" ng-model="dni" name="dni" placeholder="Ej: '17123765', '20-17123765-1'" required/>
 					</li>
 					<li>
 						<label for="nombreInst">Apellido y Nombre/Institución:</label>
@@ -66,15 +67,15 @@
 					<li>
 						<label for="localidad">Localidad:</label>
 						<input type="text" placeholder="Ej: Bella Vista" ng-model="localidad" typeahead="u as u.localidad for u in localidades | filter:$viewValue | limitTo:5"
-						typeahead-min-length='3' typeahead-on-select='onSelectLocalidad($item, $model, $label)'  autocomplete=none>
+						typeahead-min-length='3' typeahead-on-select='onSelectLocalidad($item, $model, $label)'  autocomplete=none required/>
 					</li>
 					<li>
 						<label for="domicilio">Domicilio:</label>
-						<input type="text" ng-model="domicilio" name="domicilio" placeholder="Ej: 9 de Julio 1234" />
+						<input type="text" ng-model="domicilio" name="domicilio" placeholder="Ej: 9 de Julio 1234" required />
 					</li>
 					<li>
 						<label for="tel">Teléfono:</label>
-						<input type="text"  ng-model="tel" name="tel" placeholder="Ej: 3624223344" />
+						<input type="text"  ng-model="tel" name="tel" placeholder="Ej: 3624223344" required />
 					</li>
 					<li>
 						<label for="iva">Condición de IVA:</label>

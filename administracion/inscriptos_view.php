@@ -16,6 +16,7 @@
 			<div id="buscar" class="form-group form-inline">
 			<div class="input-group">
 				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+
 				<input name="search" class="form-control" type="text" ng-model="filtro" />
 			</div>
 			</div>
@@ -25,7 +26,7 @@
 				<th>Apellido y Nombres</th>
 				<th>Correo</th>
 				<th>Telefono</th>
-				<tr ng-repeat="insc in inscriptos | filter:filtro">
+				<tr ng-repeat="insc in inscriptos | filter: filtro">
 					<td>{{ insc.num_ins }}</td>
 					<td>{{ insc.fecha }}</td>
 					<td>{{ insc.ayn }}</td>
