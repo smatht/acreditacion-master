@@ -31,10 +31,8 @@
 			<table class="tabla_inscriptos">
 				<th>Apellido y Nombre</th><th>Accion</th>
 				<tr ng-repeat="insc in inscriptos | filter: filtro">
-					<td>{{ insc.ayn }} ({{ insc.email }}){{insc.fecha_pago}}</td>
-					<td ng-if="insc.fecha_pago"><a class="btn btn-info" target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
-					<td ng-if="!insc.fecha_pago"><a class="btn btn-info disabled" target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
-					<!-- <td><a target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td> -->
+					<td>{{ insc.ayn }} ({{ insc.email }})</td>
+					<td><a target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
 				</tr>
 			</table>
 
