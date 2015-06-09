@@ -16,6 +16,8 @@
 										  fp.forma_pago, 
 										  ti.precio_insc_temp,
 										  ti.precio_insc_tard,
+										  df.cuil,
+										  df.institucion,
 										  df.localidad, 
 										  df.domicilio, 
 										  df.telefono,
@@ -46,33 +48,51 @@
 
 		$pdf = new FPDF();
 		$pdf->AddPage();
-		$pdf->SetFont('Arial','',14);
+		
 		//un bucle que se repite dos veces
 		for ($i=1; $i <= 2; $i++) { 
 
 			$pdf->Cell(60);
+			$pdf->SetFont('Arial','',14);
+			$pdf->Cell(70,10,'COMPROBANTE DE PAGO NRO: '.$registro->id_datos_fac,0,0,'C');
 
-			$pdf->Cell(60,10,'COMPROBANTE DE PAGO NRO: '.$registro->id_datos_fac,0,0,'C');
-
-			$pdf->SetFont('Arial','',12);
+			$pdf->SetFont('Arial','',10);
 			$pdf->Ln(20);
 			$pdf->Cell(60);
 
-			$pdf->Cell(60,10,'Fecha de Inscripcion: '.date('d/m/Y', $registro->fecha_hora),2,2,'L');
-			$pdf->Cell(60,10,'Apellido y Nombre: '.$registro->ayn,2,2,'L');
-			$pdf->Cell(60,10,'Correo Electronico: '.$registro->correo,2,2,'L');
-			$pdf->Cell(60,10,'Recibo a Nombre de :'.$registro->universidad,2,2,'L');
-			$pdf->Cell(60,10,'Localidad: '.$registro->localidad,2,2,'L');
-			$pdf->Cell(60,10,'Forma de Pago: '.$registro->forma_pago,2,2,'L');
-			$pdf->Cell(60,10,'Fecha de Pago: '.$registro->fecha_pago." Agregar Hora",2,2,'L');
-			$pdf->Cell(60,10,'Monto Abonado: $'.$monto,2,2,'L');
+			$pdf->Cell(60,7,'Fecha de Inscripcion: '.date('d/m/Y', $registro->fecha_hora),2,2,'L');
+			$pdf->Cell(60,7,'Apellido y Nombre: '.$registro->ayn,2,2,'L');
+			$pdf->Cell(60,7,'Correo Electronico: '.$registro->correo,2,2,'L');
+			$pdf->rect(65,51,100,70);
+			$pdf->rect(65,193,100,70);
+			$pdf->Cell(60,7,'Recibo a Nombre de: ',2,2,'L');
+			$pdf->SetFont('Arial','BI',11);
+			$pdf->Cell(90,4,ucwords($registro->institucion),2,2,'C');
+			$pdf->SetFont('Arial','',10);
+			if($registro->cuil){
+				$pdf->Cell(60,8,'CUIL/CUIT/DNI: '.$registro->cuil,2,2,'L');	
+			}else{
+				$pdf->Cell(60,8,'CUIL/CUIT/DNI: Sin Información',2,2,'L');
+			}
+			if($registro->localidad){
+				$pdf->Cell(60,8,'Localidad: '.$registro->localidad,2,2,'L');	
+			}else{
+				$pdf->Cell(60,8,'Localidad: Sin Información',2,2,'L');
+			}
+			if($registro->forma_pago){
+				$pdf->Cell(60,8,'Forma de Pago: '.$registro->forma_pago,2,2,'L');	
+			}else{
+				$pdf->Cell(60,8,'Forma de Pago: Sin Información',2,2,'L');
+			}
+			$pdf->Cell(60,8,'Fecha de Pago: '.$registro->fecha_pago,2,2,'L');
+			$pdf->Cell(60,8,'Monto Abonado: $'.$monto.",00.-",2,2,'L');
 			$pdf->Cell(60,10,'Numero de Recibo: _________________________',2,2,'L');
-			$pdf->Ln(10);
+			$pdf->Ln(12);
 			$pdf->Cell(90);
 			$pdf->Cell(60,10,'Firma',2,1,'R');
 
 			$pdf->Line(10,140,190,140);
-			$pdf->Ln(5);
+			$pdf->Ln(18);
 		}
 		$pdf->Image('../../inscripcion/images/teyet2015.png' , 12, 5, 50 , 38,'PNG');
 	    $pdf->Image('../../inscripcion/images/teyet2015.png' , 12, 150, 50 , 38,'PNG');

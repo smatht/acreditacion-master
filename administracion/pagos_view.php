@@ -99,7 +99,7 @@
 			return false;
 		}else{
 			location.reload();
-			window.open("",'_blank');
+			
 		}
 
 	})

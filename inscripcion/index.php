@@ -1,3 +1,4 @@
+<?php echo date("Y-m-d H:i:s"); ?>
 <!DOCTYPE HTML>
 <html lang="es" ng-app="acreditacion">
 <head>
