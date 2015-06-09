@@ -75,7 +75,10 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 					condIva:"Desconocido",
 					id:4
 				}
-			];	
+			];
+		$scope.formaDePago = $scope.selectTipodePago[0];
+		$scope.tipoDeInscripcion = $scope.selectTipodeInscripcion[2];
+		$scope.iva = $scope.selectCondIva[4];
 		//********//
 		getInscriptos();
  
