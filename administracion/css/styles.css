@@ -23,6 +23,11 @@ h1, h2, h3 {padding: 1em 0;text-align: center;}
 	margin: 0px;
 }
 
+.tabla_inscriptos tr:nth-child(1) th {
+	text-align: center;
+	padding: 3px 0px 3px 0px;
+}
+
 .center{
 	text-align: center;
 	margin:auto;
@@ -74,7 +79,8 @@ float: left;
 
 }
 #container a {
-	background: #d3ab06;
+	background: #2887D6;
+	font-weight: bold;
 	color: black;
  	cursor: pointer;
  	display: block;
@@ -87,8 +93,12 @@ float: left;
 }
 
 #container .tabla_inscriptos a {
-	background: #d3ab06; 
+	color: #FFFFFF;
+	font-weight: bold;
+	background: #2887D6; 
  	border-radius: 5px;
+ 	font-size: 0.7em;
+ 	box-shadow: 0px 0px 5px #222222;
 	/*color: black;
 	cursor: pointer;
 	display: block;

@@ -40,33 +40,36 @@
 				<th>Nro. Insc.</th>
 				<th>Apellido y Nombres</th>
 				<th>Forma de Pago</th>
-				<th>Número de Recibo</th>
+				<th>Pago</th>
+				<th>Nro. Recibo</th>
+				<th>Ver PDF</th>
 				<?php while($registro = $resultado->fetch_object()): ?>
 					<tr class="registro" id="tabla_pagos">
 						<td><?php echo $registro->nro_inscripcion; ?></td>
 						<td class="ayn"><?php echo utf8_encode($registro->ayn); ?></td>
 						<td><?php echo $registro->forma_pago; ?></td>
+						<td>
 						<?php if( ! $registro->fecha_pago): ?>
-							<td>
-								<a id="pagar" target="_BLANK" href="../procesos/registrar_pago.php?correo=<?php echo $registro->correo; ?>&id_datos_fac=<?php echo $registro->id_datos_fac; ?>">Registrar Pago</a>
-								
+							<a id="pagar" target="_BLANK" href="../procesos/registrar_pago.php?correo=<?php echo $registro->correo; ?>&id_datos_fac=<?php echo $registro->id_datos_fac; ?>">Registrar Pago</a>
 							</td>
+							<td></td>
+							<td></td>
 						<?php else: ?>
+							Pagado
+							</td>
 							<td title="Cobrado por <?php echo $registro->cajero;?>">
 							<?php if( ! $registro->nro_factura): ?>
-								
-									<form action="../procesos/registrar_numero_factura.php" method="POST">
-										<input type="hidden" name="id_datos_fac" value="<?php echo $registro->id_datos_fac; ?>">
-										<input type="text" name="nro_factura" id="nro_factura">
-										<input type="submit" value="Guardar">
-										
-									</form>
-
-								
+								<form action="../procesos/registrar_numero_factura.php" method="POST">
+									<input type="hidden" name="id_datos_fac" value="<?php echo $registro->id_datos_fac; ?>">
+									<input type="text" name="nro_factura" id="nro_factura">
+									<input type="submit" value="Guardar">
+								</form>
 							<?php else: ?>
-								Nro. Fac. <?php echo $registro->nro_factura; ?>
+								Nro. <?php echo $registro->nro_factura; ?>
 							<?php endif; ?>
-							<a class="btn_comp_pago" target="_BLANK" href="../procesos/crear/comprobante_pago.php?correo=<?php echo $registro->correo; ?>">Ver recibo</a>
+							</td>
+							<td>
+								<a class="btn_comp_pago" target="_BLANK" href="../procesos/crear/comprobante_pago.php?correo=<?php echo $registro->correo; ?>">Ver recibo</a>
 							</td>
 						<?php endif; ?>
 					</tr>
