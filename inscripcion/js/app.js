@@ -22,6 +22,10 @@ app.controller('InscripcionCtr',['$scope','$http',function($scope,$http)
 				{
 					formadePago:"Transferencia Bancaria",
 					id:2
+				},
+				{
+					formadePago:"Pago en Contaduria",
+					id:3
 				}
 			];
 		$scope.formaDePago=$scope.selectTipodePago[0];
