@@ -32,7 +32,7 @@
 				<th>Apellido y Nombre</th><th>Accion</th>
 				<tr ng-repeat="insc in inscriptos | filter: filtro">
 					<td>{{ insc.ayn }} ({{ insc.email }})</td>
-					<td><a target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
+					<td><a class="btn btn-info" target="_BLANK" href="../procesos/crear.php?nombre={{insc.ayn}}&correo={{insc.email}}">Ver</a></td>
 				</tr>
 			</table>
 

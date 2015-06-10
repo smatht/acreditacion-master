@@ -50,12 +50,12 @@
 						<td><?php echo $registro->forma_pago; ?></td>
 						<td>
 						<?php if( ! $registro->fecha_pago): ?>
-							<a id="pagar" target="_BLANK" href="../procesos/registrar_pago.php?correo=<?php echo $registro->correo; ?>&id_datos_fac=<?php echo $registro->id_datos_fac; ?>">Registrar Pago</a>
+							<a class="btn btn-primary" id="pagar" target="_BLANK" href="../procesos/registrar_pago.php?correo=<?php echo $registro->correo; ?>&id_datos_fac=<?php echo $registro->id_datos_fac; ?>">Registrar Pago</a>
 							</td>
 							<td></td>
 							<td></td>
 						<?php else: ?>
-							Pagado
+							<span class="badge" style="background-color: #468847"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></span>
 							</td>
 							<td title="Cobrado por <?php echo $registro->cajero;?>">
 							<?php if( ! $registro->nro_factura): ?>
@@ -69,7 +69,7 @@
 							<?php endif; ?>
 							</td>
 							<td>
-								<a class="btn_comp_pago" target="_BLANK" href="../procesos/crear/comprobante_pago.php?correo=<?php echo $registro->correo; ?>">Ver recibo</a>
+								<a class="btn btn-success" target="_BLANK" href="../procesos/crear/comprobante_pago.php?correo=<?php echo $registro->correo; ?>">Ver recibo</a>
 							</td>
 						<?php endif; ?>
 					</tr>
@@ -93,13 +93,12 @@
 		})		
 	})
 
-	$("#pagar").on("click", function(e){
+	$(" a#pagar ").on("click", function(e){
 		if( ! confirm("Registrar pago?")){
 			e.preventDefault();
 			return false;
 		}else{
-			location.reload();
-			
+			setTimeout(function(){location.reload();},3000);
 		}
 
 	})
